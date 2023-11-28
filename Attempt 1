@@ -1,36 +1,37 @@
 const menu = {
+   courses: {
+            appetizers: [],
+            mains: [],
+            desserts: []
+        },   
     addDishToCourse (courseName, dishName, dishPrice) {
-        dish = {
+        const dish = {
             name: dishName,
-            price: dishPrice,       
+            price: dishPrice       
     };
          this.courses[courseName].push(dish); //I still don't fully understand this line
     }, 
     getRandomDishFromCourse (courseName) {
-        dishes = this.courses[courseName]; 
+        const dishes = this.courses[courseName]; 
         const randomDishGenerator = Math.floor(Math.random() * dishes.length);
         return dishes[randomDishGenerator];
     },
     generateRandomMeal () { //Why doesn't this one need parameters?
-        appetizer = this.getRandomDishFromCourse('appetizers');
-        main = this.getRandomDishFromCourse('mains');
-        dessert = this.getRandomDishFromCourse('desserts'); 
+        const appetizer = this.getRandomDishFromCourse('appetizers');
+        const main = this.getRandomDishFromCourse('mains');
+        const dessert = this.getRandomDishFromCourse('desserts'); 
         const totalPrice = appetizer.price + main.price + dessert.price;
-        return `Appetizer: ${appetizer.name}, Main: ${main.name}, dessert: ${dessert.name}. Total Price: $${totalPrice}.`;
-    },
+        return`Appetizer: ${appetizer.name}, Main: ${main.name}, dessert: ${dessert.name}. Total Price: $${totalPrice}.`;
+    }
 
-    courses: {
-            appetizers: [],
-            mains: [],
-            desserts: []
-        }        
-    } 
+        
+    };
 menu.addDishToCourse('appetizers', 'Caesar Salad', 8.99);
 menu.addDishToCourse('appetizers', 'Bruschetta', 7.99);
-menu.addDishToCourse('appetizers', 'Beef Tartar', 21.99);
+menu.addDishToCourse('appetizers', 'beef tartar', 21.99);
 menu.addDishToCourse('mains', 'Spaghetti Bolognese', 12.99);
 menu.addDishToCourse('mains', 'Chicken Alfredo', 14.99);
-menu.addDishToCourse('mains', 'Margherita Pizza', 18.99);
+menu.addDishToCourse('mains', 'Pizza', 18.99);
 menu.addDishToCourse('desserts', 'Chocolate Cake', 6.99);
 menu.addDishToCourse('desserts', 'Cheesecake', 8.99);
 menu.addDishToCourse('desserts', 'Cannoli', 7.99);
